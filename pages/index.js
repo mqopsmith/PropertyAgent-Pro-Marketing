@@ -268,8 +268,8 @@ export default function PropertyAgentPro() {
   return (
     <>
       <Head>
-        <title>PropertyAgent Pro - Marketing Automation</title>
-        <meta name="description" content="PropertyAgent Pro WhatsApp Marketing Automation for Singapore Real Estate" />
+        <title>PropertyAgent Pro - Cloudflare v2.0</title>
+        <meta name="description" content="PropertyAgent Pro WhatsApp Marketing Automation" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -280,7 +280,7 @@ export default function PropertyAgentPro() {
             <div className="flex items-center gap-2 text-white">
               <span className="text-2xl font-bold">🏠 PropertyAgent Pro</span>
               <span className="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                v2.0 Marketing
+                v2.0 CF
               </span>
             </div>
             <div className="flex items-center gap-4 text-white/90">
@@ -307,13 +307,16 @@ export default function PropertyAgentPro() {
             {/* Message Input Section */}
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
-                ✏️ Create Your Marketing Message
+                ✏️ Create Your Message
               </h2>
               
               <textarea 
                 id="messageInput"
-                className="w-full min-h-32 p-6 border-2 border-blue-100 rounded-xl text-base outline-none transition-colors resize-y font-sans focus:border-indigo-400"
-                placeholder="Write your marketing message here... Examples:
+                className="w-full min-h-32 p-6 border-2 border-blue-100 rounded-xl text-base outline-none transition-colors resize-y font-sans"
+                style={{ borderColor: '#e8f2ff' }}
+                onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                onBlur={(e) => e.target.style.borderColor = '#e8f2ff'}
+                placeholder="Write your message here... This could be:
 
 • Property Listing: 'New Marina Bay luxury condo - 3BR/2BA, $2.3M, stunning bay views, immediate occupancy'
 
@@ -328,10 +331,25 @@ export default function PropertyAgentPro() {
               <div className="mt-6">
                 <label className="block font-semibold mb-4">📎 Attachments (Optional)</label>
                 <div 
-                  className="border-3 border-dashed border-purple-400 rounded-2xl p-10 text-center transition-all cursor-pointer hover:border-indigo-400 hover:scale-105 bg-gradient-to-br from-blue-50 to-purple-50"
+                  className="border-3 border-dashed border-purple-400 rounded-2xl p-10 text-center transition-all cursor-pointer"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%)',
+                    borderColor: '#8b5cf6',
+                    borderWidth: '3px'
+                  }}
                   onClick={triggerCloudflareUpload}
+                  onMouseEnter={(e) => {
+                    e.target.style.borderColor = '#667eea'
+                    e.target.style.background = 'linear-gradient(135deg, #e8f5e8 0%, #f8f9ff 100%)'
+                    e.target.style.transform = 'scale(1.02)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.borderColor = '#8b5cf6'
+                    e.target.style.background = 'linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%)'
+                    e.target.style.transform = 'scale(1)'
+                  }}
                 >
-                  <div className="w-16 h-16 bg-purple-600 rounded-full mx-auto mb-5 flex items-center justify-center text-white text-2xl">
+                  <div className="w-15 h-15 bg-purple-600 rounded-full mx-auto mb-5 flex items-center justify-center text-white text-2xl" style={{ width: '60px', height: '60px' }}>
                     🎯
                   </div>
                   <div className="text-lg text-gray-600 mb-4">
@@ -482,12 +500,6 @@ export default function PropertyAgentPro() {
           </div>
         )}
       </div>
-
-      <style jsx>{`
-        .border-3 {
-          border-width: 3px;
-        }
-      `}</style>
     </>
   )
 }
