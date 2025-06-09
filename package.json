@@ -1,0 +1,19 @@
+{
+  "name": "propertyagent-pro-marketing",
+  "version": "2.0.0",
+  "description": "PropertyAgent Pro - WhatsApp Marketing Automation for Singapore Real Estate",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
