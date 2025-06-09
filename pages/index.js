@@ -7,7 +7,7 @@ export default function PropertyAgentPro() {
   const [currentMatches, setCurrentMatches] = useState([])
   const [notification, setNotification] = useState({ message: '', type: '', show: false })
 
-  // Configuration - CLOUDFLARE ONLY
+  // Configuration - CLOUDFLARE ONLY - FIXED ENDPOINTS
   const CONFIG = {
     N8N_BASE_URL: process.env.NEXT_PUBLIC_N8N_URL || 'https://n8n.opsmith.biz/webhook',
     AGENT_ID: process.env.NEXT_PUBLIC_AGENT_ID || 'sarah-lim-001',
@@ -15,12 +15,13 @@ export default function PropertyAgentPro() {
   }
 
   const ENDPOINTS = {
-    MATCH_LEADS: CONFIG.N8N_BASE_URL + '/match-leads',
+    MATCH_LEADS: CONFIG.N8N_BASE_URL + '/clean-r2-match-leads', // FIXED: Now matches n8n workflow
     SEND_MESSAGE: CONFIG.N8N_BASE_URL + '/send-message'
   }
 
   useEffect(() => {
     console.log('🎯 PropertyAgent Pro v2.0 Cloudflare-Only Initialized')
+    console.log('🔧 Fixed endpoints:', ENDPOINTS)
     checkSystemStatus()
   }, [])
 
@@ -99,7 +100,9 @@ export default function PropertyAgentPro() {
       publicId: result.trackingId,
       format: getFormatFromMime(file.type),
       uploadedAt: new Date().toISOString(),
-      uploadMethod: 'cloudflare'
+      uploadMethod: 'cloudflare',
+      // Additional fields for clean R2 workflow
+      fileType: file.type
     }
   }
 
@@ -181,6 +184,7 @@ export default function PropertyAgentPro() {
     showNotification('Analyzing message & finding leads...', 'info')
 
     try {
+      // Updated payload structure for clean R2 workflow
       const requestPayload = {
         body: {
           action: 'match_leads',
@@ -188,16 +192,16 @@ export default function PropertyAgentPro() {
           agentId: CONFIG.AGENT_ID,
           uploadedFiles: uploadedFiles.map(file => ({
             name: file.name,
-            type: file.type,
-            size: file.size,
-            cloudinaryUrl: file.trackingUrl,
-            publicId: file.trackingId,
             trackingUrl: file.trackingUrl,
             trackingId: file.trackingId,
-            uploadMethod: 'cloudflare'
+            fileType: file.fileType || file.type,
+            fileSize: file.size
           }))
         }
       }
+
+      console.log('🚀 Sending to clean R2 endpoint:', ENDPOINTS.MATCH_LEADS)
+      console.log('📦 Request payload:', requestPayload)
 
       const response = await fetch(ENDPOINTS.MATCH_LEADS, {
         method: 'POST',
@@ -210,6 +214,7 @@ export default function PropertyAgentPro() {
       }
 
       const responseText = await response.text()
+      console.log('📥 Raw response:', responseText)
       
       if (!responseText.trim()) {
         throw new Error('Empty response from n8n workflow')
@@ -769,6 +774,16 @@ export default function PropertyAgentPro() {
                 • <strong>No Cloudinary:</strong> Pure Cloudflare infrastructure for better performance<br />
                 • <strong>PDF Support:</strong> Works perfectly with all document types<br />
                 • <strong>Real-time Analytics:</strong> See who views your files instantly
+              </div>
+            </div>
+
+            {/* Debug Info */}
+            <div style={{ marginTop: '1rem', padding: '1rem', background: '#e8f4f8', borderRadius: '8px', borderLeft: '3px solid #2196F3' }}>
+              <h4 style={{ color: '#2196F3', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '600' }}>🔧 System Configuration:</h4>
+              <div style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.6' }}>
+                • <strong>n8n Endpoint:</strong> {ENDPOINTS.MATCH_LEADS}<br />
+                • <strong>Cloudflare Worker:</strong> {CONFIG.CLOUDFLARE_WORKER_URL}<br />
+                • <strong>Agent ID:</strong> {CONFIG.AGENT_ID}
               </div>
             </div>
 
