@@ -11,7 +11,7 @@ export default function PropertyAgentPro() {
   const CONFIG = {
     N8N_BASE_URL: process.env.NEXT_PUBLIC_N8N_URL || 'https://n8n.opsmith.biz/webhook',
     AGENT_ID: process.env.NEXT_PUBLIC_AGENT_ID || 'sarah-lim-001',
-    CLOUDFLARE_WORKER_URL: process.env.NEXT_PUBLIC_CLOUDFLARE_WORKER_URL || 'https://propertyagent-pro-tracker.mingquan.workers.dev'
+    CLOUDFLARE_WORKER_URL: process.env.NEXT_PUBLIC_CLOUDFLARE_WORKER_URL || 'https://propertyagent.opsmith.biz'
   }
 
   const ENDPOINTS = {
