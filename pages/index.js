@@ -325,6 +325,9 @@ export default function PropertyAgentPro() {
         <title>PropertyAgent Pro - Marketing v2.0</title>
         <meta name="description" content="PropertyAgent Pro WhatsApp Marketing Automation" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
       </Head>
 
       <style jsx>{`
@@ -335,16 +338,21 @@ export default function PropertyAgentPro() {
         }
 
         body {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           min-height: 100vh;
-          color: #333;
+          color: #2c3e50;
+          font-size: 16px;
+          line-height: 1.6;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
         }
 
         .header {
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(15px);
-          padding: 1rem 2rem;
+          padding: 1.25rem 2rem;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -357,55 +365,64 @@ export default function PropertyAgentPro() {
         }
 
         .logo {
-          font-size: 1.5rem;
-          font-weight: 700;
+          font-size: 1.75rem;
+          font-weight: 800;
           color: white;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.75rem;
+          letter-spacing: -0.02em;
         }
 
         .version-badge {
           background: #8b5cf6;
           color: white;
-          padding: 0.2rem 0.5rem;
-          border-radius: 10px;
-          font-size: 0.7rem;
-          font-weight: 600;
+          padding: 0.25rem 0.625rem;
+          border-radius: 12px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.025em;
+          text-transform: uppercase;
         }
 
         .user-info {
-          color: rgba(255, 255, 255, 0.9);
+          color: rgba(255, 255, 255, 0.95);
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: 1.25rem;
+          font-weight: 500;
+          font-size: 0.95rem;
         }
 
         .analytics-btn {
           background: rgba(255, 255, 255, 0.2);
           color: white;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          padding: 0.5rem 1rem;
-          border-radius: 20px;
+          padding: 0.625rem 1.25rem;
+          border-radius: 24px;
           cursor: pointer;
-          font-size: 0.85rem;
+          font-size: 0.875rem;
           font-weight: 600;
+          font-family: inherit;
           transition: all 0.3s ease;
+          letter-spacing: 0.01em;
         }
 
         .analytics-btn:hover {
           background: rgba(255, 255, 255, 0.3);
           transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .status-indicator {
-          padding: 0.3rem 0.8rem;
-          border-radius: 20px;
-          font-size: 0.75rem;
+          padding: 0.375rem 0.875rem;
+          border-radius: 24px;
+          font-size: 0.8rem;
           font-weight: 600;
           background: rgba(46, 204, 113, 0.2);
           color: #27ae60;
           border: 1px solid rgba(46, 204, 113, 0.3);
+          letter-spacing: 0.025em;
         }
 
         .container {
@@ -415,47 +432,61 @@ export default function PropertyAgentPro() {
         }
 
         .main-panel {
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 16px;
-          padding: 2rem;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          background: rgba(255, 255, 255, 0.98);
+          border-radius: 20px;
+          padding: 2.5rem;
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .section-title {
-          font-size: 1.5rem;
-          font-weight: 600;
-          margin-bottom: 1.5rem;
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin-bottom: 1.75rem;
           color: #2c3e50;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.75rem;
+          letter-spacing: -0.025em;
         }
 
         .property-input {
           width: 100%;
-          min-height: 120px;
-          padding: 1.5rem;
+          min-height: 140px;
+          padding: 1.75rem;
           border: 2px solid #e8f2ff;
-          border-radius: 12px;
-          font-size: 1rem;
-          outline: none;
-          transition: border-color 0.3s ease;
-          resize: vertical;
+          border-radius: 16px;
+          font-size: 1.05rem;
           font-family: inherit;
+          font-weight: 400;
+          line-height: 1.7;
+          color: #2c3e50;
+          outline: none;
+          transition: all 0.3s ease;
+          resize: vertical;
+          background: rgba(255, 255, 255, 0.8);
         }
 
         .property-input:focus {
           border-color: #667eea;
+          background: rgba(255, 255, 255, 1);
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .property-input::placeholder {
+          color: #64748b;
+          font-weight: 400;
+          line-height: 1.6;
         }
 
         .upload-area {
           border: 3px dashed #8b5cf6;
-          border-radius: 15px;
-          padding: 40px;
+          border-radius: 20px;
+          padding: 2.5rem;
           text-align: center;
           transition: all 0.3s ease;
           background: linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%);
-          margin: 20px 0;
+          margin: 1.5rem 0;
           cursor: pointer;
         }
 
@@ -463,76 +494,105 @@ export default function PropertyAgentPro() {
           border-color: #667eea;
           background: linear-gradient(135deg, #e8f5e8 0%, #f8f9ff 100%);
           transform: scale(1.02);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .upload-icon {
-          width: 60px;
-          height: 60px;
+          width: 70px;
+          height: 70px;
           background: #8b5cf6;
           border-radius: 50%;
-          margin: 0 auto 20px;
+          margin: 0 auto 1.25rem;
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
-          font-size: 24px;
+          font-size: 28px;
+          box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
         }
 
         .upload-btn {
           background: linear-gradient(135deg, #8b5cf6 0%, #667eea 100%);
           color: white;
-          padding: 12px 24px;
+          padding: 0.875rem 1.75rem;
           border: none;
-          border-radius: 25px;
+          border-radius: 30px;
           cursor: pointer;
-          font-size: 1rem;
-          transition: all 0.3s ease;
+          font-size: 1.05rem;
+          font-family: inherit;
           font-weight: 600;
+          letter-spacing: 0.01em;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
         }
 
         .upload-btn:hover {
           background: linear-gradient(135deg, #7c3aed 0%, #5a6fd8 100%);
           transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+          box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
         }
 
         .file-item {
           display: flex;
           align-items: center;
-          gap: 15px;
-          padding: 15px;
+          gap: 1.25rem;
+          padding: 1.25rem;
           background: linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%);
-          border-radius: 10px;
-          margin-bottom: 10px;
+          border-radius: 16px;
+          margin-bottom: 0.875rem;
           border: 2px solid #8b5cf6;
+          transition: all 0.3s ease;
+        }
+
+        .file-item:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
         .file-icon {
-          width: 40px;
-          height: 40px;
+          width: 48px;
+          height: 48px;
           background: #8b5cf6;
-          border-radius: 8px;
+          border-radius: 12px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
           font-weight: bold;
+          font-size: 1.1rem;
         }
 
         .file-info {
           flex: 1;
         }
 
+        .file-info > div:first-child {
+          font-weight: 600;
+          color: #2c3e50;
+          font-size: 1rem;
+          margin-bottom: 0.25rem;
+        }
+
+        .file-info > div:nth-child(2) {
+          font-size: 0.875rem;
+          color: #64748b;
+          font-weight: 500;
+        }
+
         .btn {
-          padding: 0.8rem 1.5rem;
+          padding: 1rem 1.75rem;
           border: none;
-          border-radius: 8px;
+          border-radius: 12px;
           cursor: pointer;
           font-weight: 600;
+          font-family: inherit;
+          font-size: 1rem;
+          letter-spacing: 0.01em;
           transition: all 0.3s ease;
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.625rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary {
@@ -542,105 +602,145 @@ export default function PropertyAgentPro() {
 
         .btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
 
         .btn-secondary {
-          background: #6c757d;
+          background: #64748b;
           color: white;
         }
 
+        .btn-secondary:hover {
+          background: #475569;
+          transform: translateY(-1px);
+        }
+
         .btn:disabled {
-          background: #95a5a6;
+          background: #94a3b8;
           cursor: not-allowed;
           transform: none;
+          box-shadow: none;
         }
 
         .lead-card {
           background: white;
-          border-radius: 12px;
-          padding: 1.5rem;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+          border-radius: 20px;
+          padding: 2rem;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
           border: 2px solid #e8f2ff;
           transition: all 0.3s ease;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.75rem;
         }
 
         .lead-card:hover {
           border-color: #667eea;
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .lead-card h3 {
+          font-weight: 700;
+          color: #2c3e50;
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+          letter-spacing: -0.01em;
+        }
+
+        .lead-card p {
+          font-size: 0.95rem;
+          color: #64748b;
+          font-weight: 500;
+          margin-bottom: 0.25rem;
         }
 
         .notification {
           position: fixed;
-          top: 20px;
-          right: 20px;
-          padding: 1rem 1.5rem;
-          border-radius: 8px;
+          top: 24px;
+          right: 24px;
+          padding: 1.25rem 1.75rem;
+          border-radius: 16px;
           color: white;
           font-weight: 600;
+          font-family: inherit;
+          font-size: 0.95rem;
           z-index: 1000;
           transform: translateX(400px);
           transition: transform 0.3s ease;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+          letter-spacing: 0.01em;
         }
 
         .notification.show {
           transform: translateX(0);
         }
 
-        .notification.success { background: #27ae60; }
-        .notification.error { background: #e74c3c; }
-        .notification.info { background: #3498db; }
+        .notification.success { 
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+        }
+        .notification.error { 
+          background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+        }
+        .notification.info { 
+          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); 
+        }
 
         .action-buttons {
           display: flex;
-          gap: 1rem;
-          margin-top: 1rem;
+          gap: 1.25rem;
+          margin-top: 1.5rem;
         }
 
         .btn-success {
-          background: #27ae60;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
           color: white;
-          padding: 0.5rem 1rem;
+          padding: 0.75rem 1.25rem;
           border: none;
-          border-radius: 6px;
+          border-radius: 10px;
           cursor: pointer;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
+          font-family: inherit;
           font-weight: 600;
+          letter-spacing: 0.01em;
           transition: all 0.3s ease;
+          box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
         }
 
         .btn-success:hover {
-          background: #219a52;
+          background: linear-gradient(135deg, #059669 0%, #047857 100%);
           transform: translateY(-1px);
+          box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
         }
 
         .btn-edit {
-          background: #f39c12;
+          background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
           color: white;
-          padding: 0.5rem 1rem;
+          padding: 0.75rem 1.25rem;
           border: none;
-          border-radius: 6px;
+          border-radius: 10px;
           cursor: pointer;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
+          font-family: inherit;
           font-weight: 600;
+          letter-spacing: 0.01em;
           transition: all 0.3s ease;
+          box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
         }
 
         .btn-edit:hover {
-          background: #d68910;
+          background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
           transform: translateY(-1px);
+          box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
 
         .spinner {
-          border: 2px solid #f3f3f3;
-          border-top: 2px solid #667eea;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-top: 2px solid white;
           border-radius: 50%;
           width: 20px;
           height: 20px;
           animation: spin 1s linear infinite;
           display: inline-block;
-          margin-right: 0.5rem;
+          margin-right: 0.625rem;
         }
 
         @keyframes spin {
@@ -648,16 +748,127 @@ export default function PropertyAgentPro() {
           100% { transform: rotate(360deg); }
         }
 
+        /* Info boxes with better typography */
+        .info-box {
+          margin-top: 1.5rem;
+          padding: 1.5rem;
+          border-radius: 16px;
+          font-size: 0.9rem;
+          line-height: 1.7;
+        }
+
+        .info-box h4 {
+          margin-bottom: 0.75rem;
+          font-size: 1rem;
+          font-weight: 700;
+          letter-spacing: 0.01em;
+        }
+
+        .info-box-cloudflare {
+          background: linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%);
+          border-left: 4px solid #8b5cf6;
+          color: #475569;
+        }
+
+        .info-box-cloudflare h4 {
+          color: #8b5cf6;
+        }
+
+        .info-box-debug {
+          background: #e8f4f8;
+          border-left: 4px solid #2196F3;
+          color: #475569;
+        }
+
+        .info-box-debug h4 {
+          color: #2196F3;
+        }
+
+        .code-text {
+          font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+          font-size: 0.85rem;
+          font-weight: 500;
+          background: rgba(0, 0, 0, 0.05);
+          padding: 0.125rem 0.375rem;
+          border-radius: 4px;
+          letter-spacing: 0.01em;
+        }
+
+        /* AI Message styling */
+        .ai-message-box {
+          background: #f8f9ff;
+          border-radius: 16px;
+          padding: 1.5rem;
+          margin: 1.25rem 0;
+          border-left: 4px solid #667eea;
+          font-size: 0.95rem;
+          line-height: 1.7;
+        }
+
+        .ai-message-box strong {
+          font-weight: 700;
+          color: #2c3e50;
+          font-size: 1rem;
+        }
+
+        .ai-message-content {
+          margin-top: 0.75rem;
+          white-space: pre-line;
+          color: #374151;
+          font-weight: 500;
+        }
+
+        /* Relevance score styling */
+        .relevance-score {
+          text-align: right;
+        }
+
+        .relevance-badge {
+          padding: 0.375rem 0.875rem;
+          border-radius: 24px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.025em;
+          text-transform: uppercase;
+        }
+
+        .relevance-percentage {
+          font-size: 1rem;
+          font-weight: 700;
+          color: #667eea;
+          margin-top: 0.375rem;
+        }
+
         @media (max-width: 768px) {
           .container {
             padding: 0 1rem;
+            margin: 1rem auto;
           }
+          
+          .main-panel {
+            padding: 1.5rem;
+          }
+          
           .action-buttons {
             flex-direction: column;
           }
+          
           .header-content {
             flex-direction: column;
             gap: 1rem;
+          }
+          
+          .logo {
+            font-size: 1.5rem;
+          }
+          
+          .section-title {
+            font-size: 1.5rem;
+          }
+          
+          .property-input {
+            font-size: 1rem;
+            padding: 1.25rem;
           }
         }
       `}</style>
@@ -675,7 +886,7 @@ export default function PropertyAgentPro() {
               </button>
               <div className="status-indicator">⚡ System Online</div>
               <span>Jermaine Tan - 📞 8826 6895</span>
-              <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '600' }}>JT</div>
+              <div style={{ width: '44px', height: '44px', background: 'rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '700', fontSize: '0.9rem' }}>JT</div>
             </div>
           </div>
         </div>
@@ -700,13 +911,13 @@ export default function PropertyAgentPro() {
             />
             
             {/* File Upload Section */}
-            <div style={{ marginTop: '1.5rem' }}>
-              <label style={{ display: 'block', fontWeight: '600', marginBottom: '1rem' }}>📎 Attachments (Optional)</label>
+            <div style={{ marginTop: '2rem' }}>
+              <label style={{ display: 'block', fontWeight: '600', marginBottom: '1.25rem', fontSize: '1.1rem', color: '#2c3e50' }}>📎 Attachments (Optional)</label>
               <div className="upload-area" onClick={triggerCloudflareUpload}>
                 <div className="upload-icon">🎯</div>
-                <div style={{ fontSize: '1.1rem', color: '#666', marginBottom: '15px' }}>
-                  <strong>Cloudflare Tracking Upload</strong><br />
-                  <small>Click to upload files with tracking (Images, PDFs, Documents - Max 50MB each)</small>
+                <div style={{ fontSize: '1.1rem', color: '#64748b', marginBottom: '1.25rem', fontWeight: '500' }}>
+                  <strong style={{ color: '#2c3e50', fontWeight: '700' }}>Cloudflare Tracking Upload</strong><br />
+                  <span style={{ fontSize: '0.95rem' }}>Click to upload files with tracking (Images, PDFs, Documents - Max 50MB each)</span>
                 </div>
                 <button className="upload-btn" onClick={triggerCloudflareUpload}>
                   🎯 Upload to Cloudflare
@@ -719,15 +930,15 @@ export default function PropertyAgentPro() {
                   <div key={index} className="file-item">
                     <div className="file-icon">{getFileIcon(file.type)}</div>
                     <div className="file-info">
-                      <div style={{ fontWeight: '500', color: '#333' }}>{file.name}</div>
-                      <div style={{ fontSize: '0.9rem', color: '#666' }}>{formatFileSize(file.size)}</div>
-                      <div style={{ background: '#8b5cf6', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: '600', marginTop: '5px', display: 'inline-block' }}>
+                      <div>{file.name}</div>
+                      <div>{formatFileSize(file.size)}</div>
+                      <div style={{ background: '#8b5cf6', color: 'white', padding: '0.25rem 0.625rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700', marginTop: '0.5rem', display: 'inline-block', letterSpacing: '0.025em' }}>
                         🎯 Cloudflare Tracking Active
                       </div>
                     </div>
                     <button 
                       onClick={() => removeFile(index)}
-                      style={{ background: '#f44336', color: 'white', border: 'none', width: '30px', height: '30px', borderRadius: '50%', cursor: 'pointer' }}
+                      style={{ background: '#ef4444', color: 'white', border: 'none', width: '32px', height: '32px', borderRadius: '50%', cursor: 'pointer', fontWeight: '700', fontSize: '1.1rem' }}
                     >
                       ×
                     </button>
@@ -767,9 +978,9 @@ export default function PropertyAgentPro() {
             </div>
 
             {/* Info Box */}
-            <div style={{ marginTop: '1rem', padding: '1rem', background: 'linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%)', borderRadius: '8px', borderLeft: '3px solid #8b5cf6' }}>
-              <h4 style={{ color: '#8b5cf6', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '600' }}>🎯 Cloudflare Tracking Features:</h4>
-              <div style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.6' }}>
+            <div className="info-box info-box-cloudflare">
+              <h4>🎯 Cloudflare Tracking Features:</h4>
+              <div>
                 • <strong>100% Tracking:</strong> Every file uploaded gets click tracking URLs<br />
                 • <strong>No Cloudinary:</strong> Pure Cloudflare infrastructure for better performance<br />
                 • <strong>PDF Support:</strong> Works perfectly with all document types<br />
@@ -778,53 +989,49 @@ export default function PropertyAgentPro() {
             </div>
 
             {/* Debug Info */}
-            <div style={{ marginTop: '1rem', padding: '1rem', background: '#e8f4f8', borderRadius: '8px', borderLeft: '3px solid #2196F3' }}>
-              <h4 style={{ color: '#2196F3', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '600' }}>🔧 System Configuration:</h4>
-              <div style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.6' }}>
-                • <strong>n8n Endpoint:</strong> {ENDPOINTS.MATCH_LEADS}<br />
-                • <strong>Cloudflare Worker:</strong> {CONFIG.CLOUDFLARE_WORKER_URL}<br />
-                • <strong>Agent ID:</strong> {CONFIG.AGENT_ID}
+            <div className="info-box info-box-debug">
+              <h4>🔧 System Configuration:</h4>
+              <div>
+                • <strong>n8n Endpoint:</strong> <span className="code-text">{ENDPOINTS.MATCH_LEADS}</span><br />
+                • <strong>Cloudflare Worker:</strong> <span className="code-text">{CONFIG.CLOUDFLARE_WORKER_URL}</span><br />
+                • <strong>Agent ID:</strong> <span className="code-text">{CONFIG.AGENT_ID}</span>
               </div>
             </div>
 
             {/* Results Section */}
             {currentMatches.length > 0 && (
-              <div style={{ marginTop: '2rem' }}>
+              <div style={{ marginTop: '2.5rem' }}>
                 <div className="section-title">🎯 Matching Leads</div>
                 <div>
                   {currentMatches.map((match, index) => (
                     <div key={index} className="lead-card">
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1.25rem' }}>
                         <div>
-                          <h3 style={{ fontWeight: '600', color: '#2c3e50' }}>{match.name || 'Unknown Lead'}</h3>
-                          <p style={{ fontSize: '0.9rem', color: '#666' }}>📞 {match.phone || 'No phone'}</p>
-                          <p style={{ fontSize: '0.9rem', color: '#666' }}>🏠 Interest: {match.propertyType || 'General'}</p>
+                          <h3>{match.name || 'Unknown Lead'}</h3>
+                          <p>📞 {match.phone || 'No phone'}</p>
+                          <p>🏠 Interest: {match.propertyType || 'General'}</p>
                         </div>
-                        <div style={{ textAlign: 'right' }}>
-                          <span style={{
-                            padding: '0.3rem 0.8rem',
-                            borderRadius: '20px',
-                            fontSize: '0.75rem',
-                            fontWeight: '600',
+                        <div className="relevance-score">
+                          <span className="relevance-badge" style={{
                             background: (match.relevanceScore || 0) >= 80 ? '#ffebee' : (match.relevanceScore || 0) >= 60 ? '#fff3e0' : '#e3f2fd',
                             color: (match.relevanceScore || 0) >= 80 ? '#c62828' : (match.relevanceScore || 0) >= 60 ? '#ef6c00' : '#1565c0'
                           }}>
                             {(match.relevanceScore || 0) >= 80 ? 'HIGH' : (match.relevanceScore || 0) >= 60 ? 'MEDIUM' : 'LOW'}
                           </span>
-                          <div style={{ fontSize: '0.9rem', fontWeight: '600', color: '#667eea', marginTop: '0.25rem' }}>
+                          <div className="relevance-percentage">
                             {match.relevanceScore || 0}%
                           </div>
                         </div>
                       </div>
                       
-                      <div style={{ background: '#f8f9ff', borderRadius: '8px', padding: '1rem', margin: '1rem 0', borderLeft: '3px solid #667eea' }}>
+                      <div className="ai-message-box">
                         <strong>📱 AI-Generated Message:</strong>
-                        <div style={{ marginTop: '0.5rem', whiteSpace: 'pre-line', fontSize: '0.9rem' }}>
+                        <div className="ai-message-content">
                           {match.personalizedMessage || 'No message generated'}
                         </div>
                       </div>
                       
-                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <div style={{ display: 'flex', gap: '0.75rem' }}>
                         <button className="btn-success" onClick={() => sendWhatsAppMessage(index)}>
                           📱 Send WhatsApp
                         </button>
