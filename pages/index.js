@@ -10,7 +10,7 @@ export default function PropertyAgentPro() {
   // Configuration - CLOUDFLARE ONLY - FIXED ENDPOINTS
   const CONFIG = {
     N8N_BASE_URL: process.env.NEXT_PUBLIC_N8N_URL || 'https://n8n.opsmith.biz/webhook',
-    AGENT_ID: process.env.NEXT_PUBLIC_AGENT_ID || 'sarah-lim-001',
+    AGENT_ID: process.env.NEXT_PUBLIC_AGENT_ID || 'jermaine-tan-001',
     CLOUDFLARE_WORKER_URL: process.env.NEXT_PUBLIC_CLOUDFLARE_WORKER_URL || 'https://propertyagent.opsmith.biz'
   }
 
@@ -674,8 +674,8 @@ export default function PropertyAgentPro() {
                 📊 Analytics
               </button>
               <div className="status-indicator">⚡ System Online</div>
-              <span>Sarah Lim - ERA Singapore</span>
-              <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '600' }}>SL</div>
+              <span>Jermaine Tan - 📞 8826 6895</span>
+              <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '600' }}>JT</div>
             </div>
           </div>
         </div>
